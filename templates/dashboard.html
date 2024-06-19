@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table class="table table-dark table-striped">
+    
+ 
+        <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>User Role</th>
+            
+            <th>Update/delete</th>
+            
+            </tr>
+        </thead>
+        {% for user in users %}
+        <tbody>
+            <tr>
+            <td>
+                
+                    
+                    <p class="fw-bold mb-1">{{user.username}}</p>
+                    
+                
+            </td>
+            <td>
+                <p class="fw-bold mb-1">{{user.first_name}} {{user.last_name}}</p>
+                
+                
+            </td>
+            <td>
+                <p class="fw-bold mb-1">{{user.user_role}}</p>
+                
+                
+            </td>
+            
+                
+                
+            <td>
+                    <a class="btn btn-danger" href="{% url 'delete' user.id %}">Delete</a>
+                    <a  class="btn btn-info" href="{% url 'update' user.id  %}">Update</a>
+            </td>
+                
+            
+            {% endfor %}
+            </tr>
+    
+  
+  
+
+    </table>
+{% endblock content %}

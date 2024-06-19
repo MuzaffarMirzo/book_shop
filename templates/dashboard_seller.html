@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <table class="table table-dark table-striped">
+    
+ 
+        <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+            <th>KITOB NOMI</th>
+            <th>NARXI</th>
+            <th>ADABIYOT TURI</th>
+            
+            
+            
+            </tr>
+        </thead>
+        {% for user in product %}
+        <tbody>
+            <tr>
+            <td>
+                
+                    
+                    <p class="fw-bold mb-1">{{user.name}}</p>
+                    
+                
+            </td>
+            <td>
+                <p class="fw-bold mb-1">{{user.price}}</p>
+                
+                
+            </td>
+            <td>
+                <p class="fw-bold mb-1">{{user.category}}</p>
+                
+                
+            </td>
+            
+                
+                
+            
+                
+            
+            {% endfor %}
+            </tr>
+    
+  
+  
+
+    </table>
+{% endblock content %}

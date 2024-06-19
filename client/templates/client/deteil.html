@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <!-- Product Details Area Start -->
+     
+    <div class="product-details-area pt-100px pb-100px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
+                    <!-- Swiper -->
+                    <div class="swiper-container zoom-top">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide zoom-image-hover">
+                                <img class="img-responsive m-auto" src="{{product.image.url}}"
+                                    alt="">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-details-content quickview-content ml-25px">
+                        <h2>{{product.name}}</h2>
+                        <div class="pricing-meta">
+                            <ul class="d-flex">
+                                <li class="new-price">${{product.price}}</li>
+                                
+                            </ul>
+                        </div>
+                        <div class="pro-details-rating-wrap">
+                            <div class="rating-product">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <span class="read-review"><a class="reviews" href="#">( 2 Review )</a></span>
+                        </div>
+                        <div class="stock mt-30px">
+                            <span class="avallabillty">Availability: <span class="in-stock"><i class="fa fa-check"></i>In Stock</span></span>
+                        </div>
+                        <p class="mt-30px mb-0">{{product.description}} </p>
+                        <div class="pro-details-color-size d-flex">
+                            <!-- Right Side Start -->
+                            <div class="select-shoing-wrap d-flex align-items-center">
+                                
+                                
+                            </div>
+                            <!-- Right Side End -->
+                            <!-- Right Side Start -->
+                            
+                            <!-- Right Side End -->
+                        </div>
+                        <div class="pro-details-quality">
+                            <form method="post" >
+                                {% csrf_token %}
+                                <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" type="text" name="cart" value="1" />
+                                </div>
+                                <div class="pro-details-cart">
+                                    <button class="add-cart" href=""> Add To
+                                        Cart</button>
+
+
+                                </div>
+                                {% if user.user_role == 'seller' %}
+              
+                                     <a class="btn btn-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                                 {% endif %}
+                            </form>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+  
+
+
+
+
+
+
+</body>
+{% endblock content %}
